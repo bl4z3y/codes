@@ -1,0 +1,10 @@
+Atualidades	 AP: 4.4	 AD: 5.0	 NP: 7.7	 SI: 6.9 		Média Trimestral: 6.0
+Ciências	 AP: 6.7	 AD: 7.8	 NP: 8.5	 SI: 7.1 		Média Trimestral: 7.5
+Geografia	 AP: 5.6	 AD: 7.0	 NP: 10.0	 SI: 6.9 		Média Trimestral: 7.4
+História	 AP: 6.7	 AD: 7.6	 NP: 9.9	 SI: 6.9 		Média Trimestral: 7.8
+Inglês	 AP: 4.4	 AD: 9.0	 NP: 10.0	 SI: 6.9 		Média Trimestral: 7.6
+Português	 AP: 6.1	 AD: 7.0	 NP: 8.9	 SI: 6.9 		Média Trimestral: 7.2
+Álgebra	 AP: 7.8	 AD: 7.8	 NP: 10.0	 SI: 10.0 		Média Trimestral: 8.9
+Geometria	 AP: 8.9	 AD: 9.0	 NP: 10.0	 SI: 10.0 		Média Trimestral: 9.5
+Redação	 AP: 5.7	 AD: 6.0	 NP: 9.0	 SI: 4.0 		Média Trimestral: 6.2
+Tecnologia	 AP: 10.0	 AD: 9.5	 NP: 10.0	 SI: 10.0 		Média Trimestral: 9.9

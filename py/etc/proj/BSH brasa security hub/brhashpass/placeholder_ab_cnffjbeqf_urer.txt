@@ -1,0 +1,2 @@
+user/hashed	\\	hash		\\	salt
+lucasfracaro0403@gmail.com \ 6b53e4474d3df3f538c5952445c40a7f7a7fd2e6ebf0d1962e6a9bd6 \ 252zQ5ozH2j

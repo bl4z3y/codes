@@ -1,0 +1,1 @@
+{"user": "lucasfracaro0403@gmail.com", "hash_password": "028bead4bf207051eebaf4e81294e3372f5f047ef704f8df229e3bea", "salt": "3LD1J94MbX18791"}, {"user": "", "hash_password": "cbdd75296adad6d33b409c894dc4602a27aa58e2e6a805e84476177f", "salt": "AX5YOk1dByb7ZS4"},  
