@@ -1,4 +1,5 @@
 import random
+import cesar
 
 """
 CRIPTOGRAFIA:
@@ -16,7 +17,7 @@ def crypt_it(l_key, word=''):
     for d in l_key:
         if d == '1':
             print(1)
-        elif d == '2':
+            elif d == '2':
             n_toadd = []
             for i in range(len(l_key)):
                 if c == 2:
