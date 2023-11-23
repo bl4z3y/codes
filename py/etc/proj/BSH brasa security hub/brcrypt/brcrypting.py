@@ -17,7 +17,7 @@ def crypt_it(l_key, word=''):
     for d in l_key:
         if d == '1':
             print(1)
-            elif d == '2':
+        elif d == '2':
             n_toadd = []
             for i in range(len(l_key)):
                 if c == 2:
@@ -34,6 +34,7 @@ def crypt_it(l_key, word=''):
             print(4)
         elif d == '5':
             print(5)
+            
         elif d == '6':
             print(6)
         elif d == '7':

@@ -1,4 +1,4 @@
-import math
+#import math
 
 """
 Cada matéria:
@@ -15,15 +15,15 @@ Cada trimestre:
 class Boletim:
     def __init__(self, tri: int, mats: list):
         self.tri = tri
-        self.mats = mats
-        self.boletim = []
+        self.mats: list = mats
+        self.boletim: list = []
         self.materia = {}
 
     def notas(self):
         _ = input("A nota do simulado é global? ")
         si_glob = _ == "s" 
         if si_glob: 
-            si = float(input("Digite a nota do simulado: "))
+            sim = float(input("Digite a nota do simulado: "))
         for mat in self.mats:
             self.materia = {}
             self.materia['Mat'] = mat
@@ -31,6 +31,7 @@ class Boletim:
             ##
             ##AFERIÇÃO PERIÓDICA
             ##
+            ap1, ap2, ap3 = 0,0,0
             for i in range(1,4,1):
                 globals()[f'ap{i}'] = float(input(f"Digite a nota da sua AP{i} para {mat}: "))
             ap = round((ap1+ap2+ap3)/3,1)
@@ -53,13 +54,13 @@ class Boletim:
             ##SIMULADO
             ##
             if not si_glob:
-                si = round(float(input(f"Digite a nota do Simulado para {mat}: ")),1)
-            self.materia['SI'] = si
+                sim = round(float(input(f"Digite a nota do Simulado para {mat}: ")),1)
+            self.materia['SI'] = sim
 
             ##
             ##MÉDIA TRIMESTRAL
             ##
-            md = round((ap+ad+np+si)/4,1)
+            md = round((ap+ad+np+sim)/4,1)
             self.materia['Media Tri'] = md
             print(self.materia, "\n\n")
 
@@ -82,18 +83,17 @@ class Boletim:
 def main():
     # MATERIAS = ['Português','Álgebra','Geometria','Ciências','História','Geografia','Inglês','Tecnologia','Redação','Atualidades']
     MATERIAS = ['Atualidades','Ciências','Geografia','História','Inglês','Português','Álgebra','Geometria','Redação','Tecnologia']
-    stTri = Boletim(1, MATERIAS)
-    stBol = stTri.notas()
+    stTri: Boletim = Boletim(1, MATERIAS)
+    stBol: list[dict] = stTri.notas()
     stTri.imprimir()
     
-    ndTri = Boletim(2, MATERIAS)
-    ndBol = ndTri.notas()
+    ndTri: Boletim = Boletim(2, MATERIAS)
+    ndBol: list[dict] = ndTri.notas()
     ndBol.imprimir()
     
-    rdTri = Boletim(3, MATERIAS)
-    rdBol = rdTri.notas()
+    rdTri: Boletim = Boletim(3, MATERIAS)
+    rdBol: list[dict] = rdTri.notas()
     rdBol.imprimir()
-
 
     print(stBol, ndBol, rdBol)
 

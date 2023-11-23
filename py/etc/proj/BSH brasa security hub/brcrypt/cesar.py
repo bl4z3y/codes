@@ -1,7 +1,7 @@
 import string
 
 lowerc, upperc = [], []
-NUMS = ['0','1','2','3','4','5','6','7','8','9']
+NUMS = ['1','2','3','4','5','6','7','8','9','0']
 for lc in string.ascii_lowercase:
     lowerc.append(lc)
 for uc in string.ascii_uppercase:
@@ -27,8 +27,15 @@ def shiftPhrase(phrase: str, shift: int):
             ind = upperc.index(l) + shift_l
             shifted_phr += upperc[ind]
         elif l.isnumeric():
-            ind = NUMS.index(l) + shift_n
-            shifted_phr += NUMS[ind]
+            try:
+                ind = NUMS.index(l) + shift_n
+                shifted_phr += NUMS[ind]
+            except IndexError:
+                if int(l) >= 9:
+                    lint = int(l) + shift_n
+                    while lint > 9:
+                        lint -= 10
+                    shifted_phr += str(lint)
         elif l == ' ':
             shifted_phr += ' '
     print(shifted_phr)
@@ -38,5 +45,5 @@ def main():
     shift = int(input("Digite o deslocamento: "))
 
     shiftPhrase(phrase, shift)
-
-main()
+if __name__ == "__main__":
+    main()
