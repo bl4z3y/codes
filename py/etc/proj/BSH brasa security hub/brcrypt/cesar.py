@@ -45,5 +45,7 @@ def main():
     shift = int(input("Digite o deslocamento: "))
 
     shiftPhrase(phrase, shift)
+
+
 if __name__ == "__main__":
     main()

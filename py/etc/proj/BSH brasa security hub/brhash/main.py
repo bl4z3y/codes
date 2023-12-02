@@ -1,13 +1,13 @@
-import brhashing, json as j
+import brhashing
 
 def main():
     o = input("Você quer um sal para usar no hash? ")
-    salt_hash = o.lower() == 's'
+    salt_hash = o.lower() == "s"
     if salt_hash:
         salt: str = brhashing.salt_it()
         print(f"Esse é o sal: {salt}")
     else:
-        salt = ''
+        salt = ""
     word: str = input("Digite: ")
     print(f"{word +  salt}")
     sha = input("Digite o algorítmo: (ex: sha256): ")

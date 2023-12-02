@@ -1,11 +1,16 @@
 package main
 
-import "fmt"
+import "fmt" 
 
 func main(){
-  x := 5
+  var x string
   var salute string = "Hello, World!"
-  fmt.Println(x)
   fmt.Println(salute)
+  fmt.Println("O que você quer que eu diga?")
+  fmt.Scanln(&x)
+  fmt.Print("\n", x)
+  if (x == ""){
+    println("mal-educado")
+  }
 }
 

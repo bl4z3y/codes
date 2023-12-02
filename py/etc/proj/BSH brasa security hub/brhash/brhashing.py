@@ -9,7 +9,7 @@ def salt_it():
     global first
     salt = ''
     #Gerar o sal
-    for i in range(random.randint(8,16) + 1):
+    for _ in range(random.randint(8,16) + 1):
         if first == 1:
             salt += random.choice(NUMS)
         else:

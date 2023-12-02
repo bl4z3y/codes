@@ -1,6 +1,9 @@
-import brcrypting as brc
+import brcrypting
 
-KEY =   '2AB2CD2EF'
+file = input("Nome do arquivo: ")
+_ = int(input("Criptografar ou descriptografar? <1 2> "))
+if _ == 1:
+    brcrypting.cryptFile(file)
+elif _ == 2:
+    brcrypting.decryptFile(file)
 
-list_key = brc.key_to_list(KEY)
-brc.crypt_it(list_key)
