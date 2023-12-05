@@ -10,7 +10,7 @@ for (let i = 0; i < 5; i++) {
 let response = prompt("RESPONDE: ")
 if (response == "s"){
   console.log("ent ta bom")
-} else {
+}else{
   console.log("mal educado...")
 }
 

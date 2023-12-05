@@ -8,9 +8,13 @@ func main(){
   fmt.Println(salute)
   fmt.Println("O que você quer que eu diga?")
   fmt.Scanln(&x)
-  fmt.Print("\n", x)
+  fmt.Printf("\n%v\n", x)
   if (x == ""){
-    println("mal-educado")
+    println("mal educado")
+  }else if (x == "nigger"){
+    println("KILL ALL NIGGERS")
+  }else{
+    println("ok boomer")
   }
 }
 

@@ -2,7 +2,6 @@ import hashlib
 from os import system, getcwd
 #import cesar
 
-
 """
 TODO:
     >Arrumar a escrita do arquivo (\n duplo)
@@ -14,7 +13,7 @@ def key_to_list(key: str):
         list_key.append(d)
     return list_key
 
-def bf_it(l_key):
+def brainf_it(l_key):
     c = 0
     for d in l_key:
         if d == '1':
@@ -49,7 +48,6 @@ def bf_it(l_key):
     print(l_key)
 
 
-
 def cryptFile(fname: str):
     kfile: str = fname.replace(".txt", "") + ".brkey"
     path_kfile: str = getcwd() + "/" + kfile
@@ -62,7 +60,7 @@ def cryptFile(fname: str):
 
     with open(fname, "w") as f:
         for l in allines:
-            print(f"L = '{l}'\nLR = '{l[::-1]}'")
+            # print(f"L = '{l}'\nLR = '{l[::-1]}'")
             # print(l[::-1], end='')
             if not l.endswith("\n"):
                 f.write(l[::-1] + "\n")
@@ -80,7 +78,6 @@ def cryptFile(fname: str):
 
 def decryptFile(fname: str):
     kfile: str = fname.replace(".txt", "") + ".brkey"
-
     with open(kfile, "r") as f:
         real_key = f.readline()
 
@@ -98,7 +95,6 @@ def decryptFile(fname: str):
         elif _ == 2: # Descriptografar o arquivo
             with open(fname, "w") as f:
                 for l in allines:
-                    f.write(l[::-1] + "\n")
-
+                    f.write(l[::-1])
     return
 
