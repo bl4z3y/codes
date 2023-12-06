@@ -4,7 +4,8 @@ from os import system, getcwd
 
 """
 TODO:
-    >Arrumar a escrita do arquivo (\n duplo)
+    >Arrumar a escrita do arquivo (\n duplo) --OK
+
 """
 
 def key_to_list(key: str):
@@ -83,7 +84,7 @@ def decryptFile(fname: str):
 
     key = input("Digite a chave para descriptografar: ")
     if hashlib.sha512(key.encode()).hexdigest() == real_key:
-        _ = int(input("Escolha:\n1-Exibir o conteúdo do arquivo\n2-Descriptografar o arquivo\n=>"))
+        _ = int(input("\nEscolha:\n1-Exibir o conteúdo do arquivo\n2-Descriptografar o arquivo\n=>"))
         with open(fname, "r") as f:
             allines = f.readlines()
 

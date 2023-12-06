@@ -43,7 +43,6 @@ def shiftPhrase(phrase: str, shift: int):
 def main():
     phrase = input("Digite a frase: ")
     shift = int(input("Digite o deslocamento: "))
-
     shiftPhrase(phrase, shift)
 
 
