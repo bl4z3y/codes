@@ -6,6 +6,6 @@ puts suamae
 while suamae == "gorda"
   puts "bruh"
 end
-
-class Human
-  def class init
+#
+#class Human
+#  def class init
