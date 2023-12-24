@@ -1,0 +1,194 @@
+import random as r
+import os
+
+global MIN, MAX, T_G, c
+c = 10
+MIN, MAX = 1, 20
+T_G = {
+  'F': [10, 21],
+  'N': [5, 51],
+  'D': [1, 5],
+  'I': [0, 3],
+}
+entries = []
+
+"""
+Modos de jogo:
+-Fácil: 
+    10 Dicas, adivinhações ilimitadas
+-Normal(Médio): 
+    5 Dicas, adivinhações ilimitadas
+-Difícil: 
+    1 Dica, 5 adivinhações 
+-Impossível: 
+    Sem dicas, 3 adivinhações
+-Custom: 
+    Tudo customizável
+SECRETOS:
+-666: 
+    Sem dicas e 1 adivinhação
+-Baby Mode: 
+    O jogo te fala o resultado e te chama de bebezão 
+"""
+
+randomize = lambda MIN, MAX: r.randint(MIN, MAX)
+
+
+def cls():
+  os.system('clear')
+  #os.system('cls')
+
+
+
+def gamemode():
+  cls()
+  opc = input("\nBem vindo ao jogo de adivinhação! Selecione um modo de jogo abaixo:\n1-Fácil\n2-Normal\n3-Difícil\n4-Impossível\n5-Custom\n=>")
+  validation = True
+  while validation:
+    if opc == '1':
+      return 'F'
+    elif opc == '2':
+      return 'M'
+    elif opc == '3':
+      return 'D'
+    elif opc == '4':
+      return 'I'
+    elif opc == '5':
+      return 'C'
+    elif opc == '666':
+      return '6'
+    elif opc == 'B':
+      return 'B'
+    else:
+      print("\nEscolha um modo de jogo válido! ")
+      opc = input("\nSelecione um modo de jogo abaixo:\n1-Fácil\n2-Normal\n3-Difícil\n4-Impossível\n5-Custom\n=>")
+
+
+def tip(gm, nr, tips, min, max):
+  global c
+  if tips > 0:
+    i = nr
+    j = i-c
+    k = i+c
+    tips -= 1
+    if j < min or j > max:
+      j = min
+    if k > max or k < min:
+      k = max
+    print(f'\nO número está entre <{j}> e <{k}>\n')
+    c -= 1
+    return tips, j, k
+  else:
+    print('\nSem dicas restantes!')
+
+
+def custom():
+  tips = int(input("Dicas: "))
+  gus = int(input("Tentativas: "))
+  min = int(input("Número mínimo: "))
+  max = int(input("Número máximo: "))
+  return tips, gus, min, max
+
+def guess(min, max, nr, gm, tp, gu):
+  global MIN, MAX, c, entries
+  g = None
+  guD = gu
+
+  if gm == 'B':
+    opc = int(
+      input(f'O bebezão não sabe o número!\nAqui está: {nr}\nQuer que troque suas fraldas? <1; sim 2; não> : '))
+    if opc == 1:
+      c = 10
+      main()
+      entries.clear()
+    else:
+      quit()
+      
+  while g != nr:
+    if gu == 0:
+      opc = int(
+        input(f'\nVocê perdeu!\nO número era {nr}!\nJogar novamente? <1; sim, 2; não> '))
+      if opc == 1:
+        c = 10
+        entries.clear()
+        main()
+      else:
+        quit()
+    if tp is None:
+      tp = 0
+    try:
+      min = abs(min)
+      if g < min or g > max:
+        print(f'\nDigite um número entre {min} e {max}!')
+        entries.remove(g)
+        if gu != guD:
+          gu += 1
+          try:
+            entries.remove(g)
+          except:
+            continue
+    except TypeError:
+      g = 0
+    g = 0
+    g = input(f"\nAdivinhe o número entre <{min} e {max}>\nDigite <D> para dica <{tp}> restantes\n{gu} tentativas sobrando: ")
+    if g == '':
+      gu += 1
+    try:
+      entries.append(int(g))
+    except:
+      pass
+    #print(list(entries))
+    if g.upper() == "D":
+      if tp is not None and tp > 0:
+        tp, tpmin, tpmax = tip(gm, nr, gu, min, max)
+        min = tpmin
+        max = tpmax
+      else:
+        print('\nSem dicas restantes!')
+    else:
+      try:
+        g = int(g)
+      except ValueError:
+        print("Não achei o Número!!")
+      gu -= 1
+    if entries.count(g) > 1:
+      entries.remove(g)
+      print("Esse número já foi escolhido por você!\n")
+      gu += 1
+  else:
+    opc = int(input("\nVocê adivinhou o número!\nVocê quer jogar novamente? <1; sim 2; não>\n=>"))
+    if opc == 1:
+      c = 10
+      entries.clear()
+      main()
+    else:
+      quit()
+
+def main():
+  global MIN, MAX
+  gm = gamemode()
+  if gm == 'F':
+    nr = randomize(MIN, MAX)
+    guess(MIN, MAX, nr, gm, 100, 1000)
+  elif gm == 'M':
+    nr = randomize(MIN, MAX)
+    guess(MIN, MAX, nr, gm, 5, 1000)
+  elif gm == 'D':
+    nr = randomize(MIN, MAX)
+    guess(MIN, MAX, nr, gm, 1, 5)
+  elif gm == 'I':
+    nr = randomize(MIN, MAX)
+    guess(MIN, MAX, nr, gm, 0, 3)
+  elif gm == 'C':
+    tips, gue, min, max = custom()
+    nr = randomize(min, max)
+    guess(min, max, nr, gm, tips, gue)
+  elif gm == '6':
+    nr = randomize(MIN, MAX)
+    guess(MIN, MAX, nr, gm, 0, 1)
+  elif gm == 'B':
+    nr = randomize(MIN, MAX)
+    guess(MIN, MAX, nr, gm, 1, 1)
+
+
+main()

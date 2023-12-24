@@ -21,7 +21,7 @@ def hash_it(salt: str, word: str, algo='sha224'):
     hashed_word = ''
     #Hashar a palavra junto com o sal
     salted_word  = word + salt
-    match hashed_word:
+    match algo:
         case 'sha1':
             hashed_word = hashlib.sha1(salted_word.encode()).hexdigest()
         case 'sha224':

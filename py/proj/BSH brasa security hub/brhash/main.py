@@ -9,7 +9,7 @@ def main():
     else:
         salt = ""
     word: str = input("Digite: ")
-    print(f"{word +  salt}")
+    #print(f"{word +  salt}")
     sha = input("Digite o algorítmo: (ex: sha256): ")
     hashed_word =  brhashing.hash_it(salt, word, algo=sha)
     print(hashed_word)
